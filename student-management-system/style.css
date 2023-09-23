@@ -1,0 +1,148 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--primaryColor: #1b82f7;
+	--white: #ffffff;
+	--grey-dark: #00000080;
+	--grey-light: #e5e5e5;
+	--red-light: rgba(255, 0, 0, 0.4);
+	--green-light: rgba(0, 255, 0, 0.5);
+	--blue-light: rgba(0, 0, 255, 0.4);
+	--red-dark: red;
+	--green-dark: green;
+	--blue-dark: blue;
+}
+
+body {
+	background-color: var(--primaryColor);
+	display: grid;
+	place-content: center;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.container {
+	background: var(--white);
+	min-height: 600px;
+	border-radius: 8px;
+	width: max-content;
+	overflow: hidden;
+}
+.tableWrapper{
+	width: 100%;
+	overflow: scroll;
+	
+}
+@media (max-width: 600px) {
+	
+	.container{
+		width: 100vw;
+		height: 100vh;
+		border-radius: 0;
+		padding: 10px;
+	}
+	
+}
+
+
+#studentTableHead th:nth-child(2){
+	position: sticky;
+	left: 0;
+	top: 0;
+}
+#studentTableBody td:nth-child(2){
+	position: sticky;
+	left: 0;
+	top: 0;
+}
+
+/* #studentTableBody td  */
+.tableWrapper::-webkit-scrollbar{
+	display: none;
+}
+.border-lg {
+	border-radius: 50px;
+}
+.bg-primary {
+	background-color: var(--primaryColor);
+}
+.text-white {
+	color: var(--white);
+}
+.text-grey-dark {
+	color: var(--grey-dark);
+}
+.text-xl {
+	font-size: 20px;
+}
+.pointer {
+	cursor: pointer;
+}
+
+.chip {
+	background-color: var(--grey-dark);
+	border-radius: 50px;
+	padding: 8px 10px;
+	width: 100%;
+}
+.chip.moderate {
+	background: var(--blue-light);
+	color: var(--blue-dark);
+}
+.chip.high {
+	background: var(--green-light);
+	color: var(--green-dark);
+}
+.chip.low {
+	background: var(--red-light);
+	color: var(--red-dark);
+}
+
+#studentTableBody tr:nth-child(2n) {
+	background: var(--grey-light);
+}
+#studentTableBody tr:nth-child(2n - 1) {
+	background: var(--white);
+}
+.text-red {
+	color: var(--red-dark);
+}
+
+.text-primary {
+	color: var(--primaryColor);
+}
+.dataNotFound{
+	position: relative;
+}
+.dataNotFound td{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.nameError,
+.parentError,
+.courseError,
+.rankError,
+.paritcipationError,
+.attendanceError,
+.gradeError,
+.feedbackError {
+	display: none;
+}
+.nameError.show,
+.parentError.show,
+.courseError.show,
+.rankError.show,
+.paritcipationError.show,
+.attendanceError.show,
+.gradeError.show,
+.feedbackError.show {
+	display: block;
+}
+
