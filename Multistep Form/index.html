@@ -40,6 +40,7 @@
 								id="email"
 								aria-describedby="emailHelp"
 								placeholder="Enter email" />
+								<small class="emailError text-danger">required!</small>
 						</div>
 						<div class="form-group mt-3">
 							<label for="password"
@@ -51,6 +52,7 @@
 								class="form-control"
 								id="password"
 								placeholder="Password" />
+								<small class="passwordError text-danger">required!</small>
 						</div>
 
 						<div class="form-group mt-3">
@@ -63,6 +65,7 @@
 								class="form-control"
 								id="confirmPassword"
 								placeholder="Password" />
+								<small class="confirmPasswordError text-danger">required!</small>
 						</div>
 
 						<div class="d-flex justify-content-end">
@@ -75,7 +78,7 @@
 					</section>
 
 					<section class="stepper" data-step="2">
-						<section class="d-flex justify-content-between gap">
+						<section class="d-flex justify-content-between gap column">
 							<div class="form-group">
 								<label for="firstName"
 									>First Name
@@ -87,6 +90,7 @@
 									id="firstName"
 									aria-describedby="firstNameHelp"
 									placeholder="e.g. John" />
+									<small class="firstNameError text-danger">required!</small>
 							</div>
 
 							<div class="form-group">
@@ -100,6 +104,7 @@
 									id="lastName"
 									aria-describedby="lastNameHelp"
 									placeholder="e.g. Doe" />
+									<small class="lastNameError text-danger">required!</small>
 							</div>
 						</section>
 
@@ -122,13 +127,14 @@
 										class="form-control"
 										id="phone"
 										placeholder="Phone Number" />
-								</div>
+									</div>
+									<small class="phoneError text-danger">required!</small>
 							</div>
 						</section>
 
 						<section class="d-flex gap mt-3">
 							<div class="form-group w-25">
-								<label for="country"
+								<label for="country" class="maxContent"
 									>Country
 									<sup class="text-danger">*</sup></label
 								>
@@ -139,6 +145,7 @@
 									id="country"
 									aria-describedby="country"
 									placeholder="🇳🇵" />
+									<small class="countryError text-danger">required!</small>
 							</div>
 
 							<div class="form-group w-100">
@@ -152,7 +159,7 @@
 									</option>
 									<option value="Koshi">Koshi</option>
 									<option value="Madhesh">Madhesh</option>
-									<option value="Bagmati">Bagmati</option>
+									<option value="Bagmati">Bagmati</option>1
 									<option value="Gandaki">Gandaki</option>
 									<option value="Lumbini">Lumbini</option>
 									<option value="Karnali">Karnali</option>
@@ -160,11 +167,12 @@
 										Sudurpashchim
 									</option>
 								</select>
+								<small class="provinceError text-danger">required!</small>
 							</div>
 						</section>
 
-            <section class="d-flex gap mt-3">
-							<div class="form-group ">
+            <section class="d-flex gap mt-3 column">
+							<div class="form-group w-100">
 								<label for="municipality"
 									>Municipality/VDC
 									<sup class="text-danger">*</sup></label
@@ -175,9 +183,10 @@
 									id="municipality"
 									aria-describedby="Municipality"
 									placeholder="e.g. Surunga" />
+									<small class="municipalityError text-danger">required!</small>
 							</div>
 
-							<div class="form-group w-50">
+							<div class="form-group w-100">
 								<label for="gender"
 									>Gender
 									<sup class="text-danger">*</sup></label
@@ -191,6 +200,7 @@
 									<option value="Custom">Custom</option>
 									
 								</select>
+								<small class="genderError text-danger">required!</small>
 							</div>
 						</section>
             <div class="d-flex gap justify-content-end">
@@ -208,9 +218,14 @@
 					</section>
 					<section class="stepper" data-step="3">
 						<section class="d-flex flex-column align-items-center justify-content-center">
-							<img src="https://picsum.photos/id/100/200/200" class="rounded-circle w-25 h-25" alt="profile image">
+							<div class="imageWrapper">
+							<img id="previewImage" src="https://static.vecteezy.com/system/resources/thumbnails/002/534/006/small/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.jpg" alt="profile image">
 
-							<input type="file" id="profileImage" class="d-none">
+						</div>
+
+
+								<input type="file" id="profileImage" class="d-none">
+							<small class="imageError text-danger mt-2">required!</small>
 							<label for="profileImage" class="mt-5 border rounded p-2 text-capitalize bg-primary text-white pointer">
 								choose profile
 							</label>
@@ -223,8 +238,9 @@
 							</button>
 							<button
 								type="button"
-								class="btn btn-primary mt-5 nextBtn">
-								<a href="./profile.html">Finish</a>
+								class="btn btn-primary mt-5 finishBtn">
+			
+								 Finish
 							</button>
 						</div>
           </section>

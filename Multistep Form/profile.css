@@ -1,0 +1,164 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+:root {
+	--primaryColor: #1b82f7;
+	--white: #ffffff;
+	--grey-dark: #00000080;
+	--grey-light: #e5e5e5;
+	--red: red;
+	--green: green;
+	--blue: blue;
+}
+body {
+	background: var(--primaryColor);
+	display: grid;
+	place-content: center;
+	margin-top: 150px;
+}
+
+.profile aside {
+	background: var(--white);
+	max-width: 200px;
+	min-width: 200px;
+	padding: 10px;
+	border-radius: 12px;
+	height: max-content;
+}
+
+aside .imageWrapper {
+	max-width: 90px;
+	max-height: 90px;
+	aspect-ratio: 1/1;
+}
+aside .imageWrapper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+aside .userName {
+	font-size: 18px;
+}
+aside .email {
+	line-height: 0.5;
+	font-size: 16px;
+	color: var(--grey-dark);
+}
+
+.navList {
+	margin-left: -20px;
+}
+
+.navList .navItem {
+	margin-bottom: 20px;
+	opacity: 0.8;
+	transition: all 0.3s ease-in-out;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	text-transform: capitalize;
+	font-weight: 500;
+	cursor: pointer;
+}
+.navList .navItem:hover {
+	opacity: 1;
+}
+
+/* details */
+.details {
+	min-width: 500px;
+	background: var(--white);
+	border-radius: 12px;
+	padding: 10px;
+}
+.details > section > h3 {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--grey-dark);
+	text-transform: capitalize;
+}
+.updateDetails,
+.changePassword {
+	display: none;
+}
+.updateDetails.active,
+.changePassword.active {
+	display: block;
+}
+
+.oldPasswordError,
+.newPasswordError,
+.confirmPasswordError,
+.emailError,
+.passwordError,
+.confirmPasswordError,
+.firstNameError,
+.lastNameError,
+.phoneError,
+.countryError,
+.provinceError,
+.municipalityError,
+.genderError,
+.imageError {
+	display: none;
+}
+.oldPasswordError.show,
+.newPasswordError.show,
+.confirmPasswordError.show,
+.emailError.show,
+.passwordError.show,
+.confirmPasswordError.show,
+.firstNameError.show,
+.lastNameError.show,
+.phoneError.show,
+.countryError.show,
+.provinceError.show,
+.municipalityError.show,
+.genderError.show,
+.imageError.show {
+	display: block;
+}
+/* custom class */
+.gap-sm {
+	gap: 15px;
+}
+.gap-xs {
+	gap: 10px;
+}
+
+@media (max-width: 768px) {
+	body {
+		margin-top: 0;
+		background: var(--white);
+	}
+	.profile {
+		width: 100vw;
+		border-radius: 0;
+		gap: 0;
+	}
+	.profile aside {
+		min-width: 100%;
+		max-width: 100%;
+		border-radius: 0;
+	}
+	.details {
+		min-width: 100%;
+		border-radius: 0;
+		height: 100%;
+	}
+}
+
+@media (max-width: 500px) {
+	.column {
+		flex-direction: column;
+	}
+}
