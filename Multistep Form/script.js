@@ -26,9 +26,9 @@ $(document).ready(function () {
 					phoneNo: phoneFieldValue,
 					province: provinceValue,
 					municipality: municipalityValue,
-					gender: genderValue
+					gender: genderValue,
 				};
-				localStorage.setItem('user', JSON.stringify(data))
+				localStorage.setItem('user', JSON.stringify(data));
 			} else {
 				localStorage.setItem('image', imageValue);
 			}
@@ -49,7 +49,12 @@ $(document).ready(function () {
 
 	$('.finishBtn').click(function () {
 		if (validateImage) {
-			localStorage.setItem('image', imageValue);
+			if (imageValue) {
+				localStorage.setItem('image', imageValue);
+			} else {
+				const defaultImageSrc = 'https://static.vecteezy.com/system/resources/thumbnails/002/534/006/small/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.jpg';
+				localStorage.setItem('image', defaultImageSrc);
+			}
 			const currentLocation = window.location.href.split('index.html');
 			window.location.href = `${currentLocation[0]}profile.html`;
 		}
@@ -100,7 +105,7 @@ $(document).ready(function () {
 		provinceValue,
 		municipalityValue,
 		genderValue,
-		imageValue = previewImage.attr('src');
+		imageValue;
 
 	// Input field event listener
 	emailField.on('input', handleEmail);
@@ -237,11 +242,15 @@ $(document).ready(function () {
 		const selectedFile = event.target.files[0];
 
 		if (selectedFile) {
-			const imageURL = URL.createObjectURL(selectedFile);
-			imageValue = imageURL
-			previewImage.attr('src', imageURL);
-			imageError.removeClass('show');
-		} else if (event) {
+			let reader = new FileReader();
+			reader.onload = function (event) {
+				const base64Image = event.target.result;
+				imageValue = base64Image;
+				previewImage.attr('src', base64Image);
+				imageError.removeClass('show');
+			};
+
+			reader.readAsDataURL(selectedFile);
 		} else {
 			imageError.text('required').addClass('show');
 		}

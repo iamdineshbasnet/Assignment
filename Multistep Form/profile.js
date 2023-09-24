@@ -100,6 +100,7 @@ $(document).ready(function () {
 		genderField.prop('disabled', true);
 		firstNameError.removeClass('show');
 		lastNameError.removeClass('show');
+
 		$('#updateMode').hide();
 		$('#editMode').show();
 
@@ -116,7 +117,7 @@ $(document).ready(function () {
 			genderField.val(user.gender).trigger('change');
 			userName.text(`${user.firstName} ${user.lastName}`);
 			userEmail.text(user.email);
-			// previewImage.attr('src', imageSrc)
+			previewImage.attr('src', imageSrc)
 		}
 	}
 
