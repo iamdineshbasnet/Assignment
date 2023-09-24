@@ -164,6 +164,9 @@ header .steps.completed:nth-child(2)::after {
 	:root {
 		--i: 4.5;
 	}
+	body{
+		overflow: scroll;
+	}
 }
 @media (max-width: 450px) {
 	:root {
