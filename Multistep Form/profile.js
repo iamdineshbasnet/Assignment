@@ -50,7 +50,8 @@ $(document).ready(function () {
 		phoneFieldValue,
 		provinceValue,
 		municipalityValue,
-		genderValue;
+		genderValue,
+		imageValue;
 
 	if (!email && !password) {
 		window.location.href = `${currentLocation[0]}index.html`;
@@ -70,6 +71,7 @@ $(document).ready(function () {
 
 	$('.logoutLink').on('click', function () {
 		localStorage.clear();
+		showAlert('Logged out successfully')
 		window.location.href = `${currentLocation[0]}index.html`;
 	});
 
@@ -131,7 +133,7 @@ $(document).ready(function () {
 	provinceField.on('input', handleProvince);
 	municipalityField.on('input', handleMunicipality);
 	genderField.on('input', handleGender);
-
+	imageField.on('change', handleProfileImage);
 	// check email
 	function handleEmail() {
 		const value = emailField.val();
@@ -144,7 +146,27 @@ $(document).ready(function () {
 		}
 		emailValue = value;
 	}
+	// handle profile image
+	function handleProfileImage(event) {
+		const selectedFile = event.target.files[0];
 
+		if (selectedFile) {
+			let reader = new FileReader();
+			reader.onload = function (event) {
+				const base64Image = event.target.result;
+				imageValue = base64Image;
+				previewImage.attr('src', base64Image);
+				localStorage.setItem('image', base64Image)
+				imageSrc = localStorage.getItem('image')
+				showAlert('Profile image updated successfully!')
+				imageError.removeClass('show');
+			};
+
+			reader.readAsDataURL(selectedFile);
+		} else {
+			imageError.text('required').addClass('show');
+		}
+	}
 	// check first name
 	function handleFirstName() {
 		const value = firstNameField.val();
@@ -267,6 +289,7 @@ $(document).ready(function () {
 			};
 			localStorage.setItem('user', JSON.stringify(data))
 			user = JSON.parse(localStorage.getItem('user'))
+			showAlert('Profile Updated Successfully!')
 			disableFields()
 			initializeProfile(user);
 		}
@@ -362,7 +385,17 @@ $(document).ready(function () {
 			newPasswordField.val('');
 			confirmPasswordField.val('');
 			oldPasswordField.val('');
+			showAlert('Password Change Successfully!')
 			return true;
 		}
+	}
+
+
+	// function show alert
+	function showAlert(message){
+		$('.alert').text(message).addClass('show')
+		setTimeout(() => {
+			$('.alert').removeClass('show')
+		}, 3000);
 	}
 });

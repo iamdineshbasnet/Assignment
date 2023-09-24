@@ -14,33 +14,40 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	</head>
 	<body>
+		<div class="alert alert-success" role="alert">success</div>
 		<main class="profile d-flex flex-column flex-md-row gap-sm">
 			<aside>
 				<section class="d-flex align-items-center flex-column">
 					<div class="imageWrapper border rounded-circle">
 						<img
 							src="https://static.vecteezy.com/system/resources/thumbnails/002/534/006/small/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.jpg"
-							class="rounded-circle"
 							id="previewImage"
 							alt="" />
 					</div>
-					<h3 class="mt-4 userName text-capitalize">John Doe</h3>
+					<input type="file" id="profileImage" class="d-none" />
+					<label for="profileImage">
+						<p type="button" class="btn btn-sm btn-primary editProfileImage text-capitalize">
+							<i class="fa-solid fa-pen updateProfileIcon"></i>
+							&nbsp;change profile
+						</p>
+					</label>
+					<h3 class="mt-0 userName text-capitalize">John Doe</h3>
 					<p class="email text-lowercase">johndoe@gmail.com</p>
 				</section>
 
 				<ul class="mt-4 navList">
 					<li class="navItem profileLink">
-							<i class="fa-solid fa-user icon"></i>
-							Profile
+						<i class="fa-solid fa-user icon"></i>
+						Profile
 					</li>
 					<li class="navItem changePasswordLink">
-							<i class="fa-solid fa-unlock icon"></i>
-							change password
+						<i class="fa-solid fa-unlock icon"></i>
+						change password
 					</li>
 					<li class="navItem logoutLink">
-							<i
-								class="fa-solid fa-arrow-right-from-bracket icon"></i>
-							logout
+						<i
+							class="fa-solid fa-arrow-right-from-bracket icon"></i>
+						logout
 					</li>
 				</ul>
 			</aside>
@@ -50,8 +57,8 @@
 					<h3>Update Profile</h3>
 
 					<form action="#" class="mt-4">
-						<section class="d-flex gap-sm column ">
-							<div class="form-group  w-100">
+						<section class="d-flex gap-sm column">
+							<div class="form-group w-100">
 								<label for="firstName">First Name</label>
 								<input
 									type="text"
@@ -60,7 +67,9 @@
 									disabled
 									aria-describedby="firstName"
 									placeholder="First Name" />
-									<small class="firstNameError text-danger">required!</small>
+								<small class="firstNameError text-danger"
+									>required!</small
+								>
 							</div>
 							<div class="form-group w-100">
 								<label for="lastName">Last Name</label>
@@ -71,7 +80,9 @@
 									disabled
 									aria-describedby="lastName"
 									placeholder="Last Name" />
-									<small class="lastNameError text-danger">required!</small>
+								<small class="lastNameError text-danger"
+									>required!</small
+								>
 							</div>
 						</section>
 						<section class="mt-3">
@@ -79,12 +90,14 @@
 								<label for="email">Email</label>
 								<input
 									type="email"
-									class="form-control  text-lowercase"
+									class="form-control text-lowercase"
 									id="email"
 									disabled
 									aria-describedby="email"
 									placeholder="e.g. johndoe@gmail.com" />
-									<small class="emailError text-danger">required!</small>
+								<small class="emailError text-danger"
+									>required!</small
+								>
 							</div>
 						</section>
 
@@ -108,8 +121,10 @@
 										id="phone"
 										disabled
 										placeholder="Phone Number" />
-									</div>
-									<small class="phoneError text-danger">required!</small>
+								</div>
+								<small class="phoneError text-danger"
+									>required!</small
+								>
 							</div>
 						</section>
 
@@ -126,7 +141,6 @@
 									id="country"
 									aria-describedby="country"
 									placeholder="🇳🇵" />
-
 							</div>
 
 							<div class="form-group w-100">
@@ -134,7 +148,10 @@
 									>Province
 									<sup class="text-danger">*</sup></label
 								>
-								<select class="form-control" id="province" disabled>
+								<select
+									class="form-control"
+									id="province"
+									disabled>
 									<option value="" hidden>
 										select province
 									</option>
@@ -148,7 +165,9 @@
 										Sudurpashchim
 									</option>
 								</select>
-								<small class="provinceError text-danger">required!</small>
+								<small class="provinceError text-danger"
+									>required!</small
+								>
 							</div>
 						</section>
 
@@ -165,7 +184,9 @@
 									disabled
 									aria-describedby="Municipality"
 									placeholder="e.g. Surunga" />
-									<small class="municipalityError text-danger">required!</small>
+								<small class="municipalityError text-danger"
+									>required!</small
+								>
 							</div>
 
 							<div class="form-group w-100">
@@ -173,7 +194,10 @@
 									>Gender
 									<sup class="text-danger">*</sup></label
 								>
-								<select class="form-control" id="gender" disabled>
+								<select
+									class="form-control"
+									id="gender"
+									disabled>
 									<option value="" hidden>
 										select Gender
 									</option>
@@ -181,7 +205,9 @@
 									<option value="Female">Female</option>
 									<option value="Custom">Custom</option>
 								</select>
-								<small class="genderError text-danger">required!</small>
+								<small class="genderError text-danger"
+									>required!</small
+								>
 							</div>
 						</section>
 
@@ -192,23 +218,21 @@
 									class="btn btn-primary mt-5 editBtn text-capitalize">
 									edit
 								</button>
-						
 							</div>
 						</section>
 						<section id="updateMode">
-							<div class="d-flex gap-sm justify-content-end ">
+							<div class="d-flex gap-sm justify-content-end">
 								<button
 									type="button"
-									class="btn btn-primary mt-5 cancelBtn text-capitalize">
+									class="btn btn-outline-primary mt-5 cancelBtn text-capitalize">
 									cancel
 								</button>
 								<button
 									type="button"
-									class="btn btn-primary mt-5 updateBtn">
+									class="btn btn-primary mt-5 updateBtn text-capitalize">
 									update
 								</button>
 							</div>
-
 						</section>
 					</form>
 				</section>
@@ -225,7 +249,9 @@
 								class="form-control"
 								id="oldPassword"
 								placeholder="Old Password" />
-								<small class="oldPasswordError text-danger">required!</small>
+							<small class="oldPasswordError text-danger"
+								>required!</small
+							>
 						</div>
 						<div class="form-group mt-3">
 							<label for="newPassword"
@@ -237,7 +263,9 @@
 								class="form-control"
 								id="newPassword"
 								placeholder="New Password" />
-								<small class="newPasswordError text-danger">required!</small>
+							<small class="newPasswordError text-danger"
+								>required!</small
+							>
 						</div>
 						<div class="form-group mt-3">
 							<label for="confirmPassword"
@@ -249,9 +277,11 @@
 								class="form-control"
 								id="confirmPassword"
 								placeholder="Confirm Password" />
-								<small class="confirmPasswordError text-danger">required!</small>
+							<small class="confirmPasswordError text-danger"
+								>required!</small
+							>
 						</div>
-            <div class="d-flex justify-content-end">
+						<div class="d-flex justify-content-end">
 							<button
 								type="button"
 								class="btn btn-primary mt-5 changePasswordBtn">

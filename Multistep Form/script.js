@@ -56,6 +56,7 @@ $(document).ready(function () {
 				localStorage.setItem('image', defaultImageSrc);
 			}
 			const currentLocation = window.location.href.split('index.html');
+			showAlert(`Welcome, ${firstNameValue} ${lastNameValue}!`)
 			window.location.href = `${currentLocation[0]}profile.html`;
 		}
 	});
@@ -303,5 +304,13 @@ $(document).ready(function () {
 			return false; // if not valid
 		}
 		return true; // if valid
+	}
+
+	// function show alert
+	function showAlert(message){
+		$('.alert').text(message).addClass('show')
+		setTimeout(() => {
+			$('.alert').removeClass('show')
+		}, 3000);
 	}
 });
