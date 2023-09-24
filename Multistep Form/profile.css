@@ -127,6 +127,10 @@ aside .email {
 .imageError.show {
 	display: block;
 }
+
+.updateMode{
+	display: none;
+}
 /* custom class */
 .gap-sm {
 	gap: 15px;
