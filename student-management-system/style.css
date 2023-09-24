@@ -37,6 +37,7 @@ body {
 .tableWrapper{
 	width: 100%;
 	overflow: scroll;
+	min-height: 150px;
 	
 }
 @media (max-width: 600px) {
