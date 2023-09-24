@@ -117,14 +117,18 @@ body {
 .text-primary {
 	color: var(--primaryColor);
 }
-.dataNotFound{
+
+#studentTableBody{
 	position: relative;
+	min-height: 400px;
 }
-.dataNotFound td{
+.dataNotFound{
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
+	height: 400px;
 }
+
 .nameError,
 .parentError,
 .courseError,

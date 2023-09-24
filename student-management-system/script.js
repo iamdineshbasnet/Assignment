@@ -45,7 +45,7 @@ $(document).ready(function () {
 	// handle search input field
 	searchInput.on('input', filterTable);
 
-	// close modal
+	// close modalloadData
 	$('.closeBtn').on('click', handleClose);
 	// Close modal on pressing the "Escape" key
 	$(document).on('keydown', function (event) {
@@ -108,7 +108,7 @@ $(document).ready(function () {
 				tableBody.append(row);
 			});
 		} else {
-			const row = `<tr class="dataNotFound"><td >No data available</td></tr>`;
+			const row = `<p class="dataNotFound">No data available</p>`;
 			tableBody.append(row);
 		}
 	}
